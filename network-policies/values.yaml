@@ -1,0 +1,6 @@
+# network-policies/values.yaml
+namespaces:
+  - frontend-ns
+  - backend-ns
+  - db-ns
+

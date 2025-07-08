@@ -1,0 +1,16 @@
+image:
+  repository: network-policies-backend
+  tag: latest
+  pullPolicy: Never
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 8080
+
+env:
+  DB_CONN: "host=postgres-postgresql.db-ns user=testuser password=testpass dbname=testdb sslmode=disable"
+
+backendTester:
+  enabled: true

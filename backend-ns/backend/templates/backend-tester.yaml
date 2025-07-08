@@ -1,0 +1,35 @@
+{{- if .Values.backendTester.enabled }}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "backend.fullname" . }}-tester
+  labels:
+    app: backend-tester
+spec:
+  containers:
+    - name: curl
+      image: curlimages/curl:latest
+      command: [ "sleep", "3600" ]
+    - name: psql
+      image: bitnami/postgresql:17.5.0-debian-12-r16
+      command: [ "sleep", "3600" ]
+      env:
+        - name: PGPASSWORD
+          value: testpass
+  restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "backend.fullname" . }}-tester
+  labels:
+    app: backend-tester
+spec:
+  selector:
+    app: backend-tester
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+{{- end }}

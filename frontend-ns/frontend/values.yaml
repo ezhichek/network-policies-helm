@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: network-policies-frontend
+  tag: latest
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  port: 80
+
+env:
+  BACKEND_URL: "http://backend.backend-ns.svc.cluster.local:8080"
+
