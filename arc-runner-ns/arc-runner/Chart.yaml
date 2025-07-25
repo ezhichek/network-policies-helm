@@ -1,0 +1,7 @@
+apiVersion: v2
+name: arc-runner
+description: GitHub Actions self-hosted runner using RunnerDeployment
+type: application
+version: 0.1.0
+appVersion: "1.0"
+
