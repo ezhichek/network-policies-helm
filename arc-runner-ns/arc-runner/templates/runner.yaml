@@ -1,0 +1,17 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: arc-runner
+  namespace: arc-runner
+spec:
+  replicas: {{ .Values.replicas }}
+  template:
+    spec:
+      repository: {{ .Values.repository | quote }}
+      image: {{ .Values.runnerImage | quote }}
+      env:
+        - name: RUNNER_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-token
+              key: token

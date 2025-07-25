@@ -1,0 +1,13 @@
+repository: "ezhichek/network-policies-helm"
+replicas: 1
+runnerImage: "ghcr.io/actions/actions-runner:latest"
+
+
+
+
+
+
+
+
+
+
